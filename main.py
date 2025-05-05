@@ -23,7 +23,7 @@ def main():
     )
     parser.add_argument("--provider", required=True, choices=["openai"],help="Embedding provider to use.")
     parser.add_argument("--model", required=True, help="Model name to use for the embedding provider.")
-    parser.add_argument("--api-key", help="OpenAI API key (required for OpenAI)")
+    parser.add_argument("--api-key", help="API key for the embedding provider.")
     parser.add_argument("--input-path", required=True, help="Path to the markdown docs folder.")
     parser.add_argument("--output-path", default="embeddings.json", help="Output file path for embeddings JSON")
     parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose logging")
