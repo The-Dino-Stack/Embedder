@@ -35,14 +35,16 @@ python main.py --provider openai --model text-embedding-ada-002 --api-key sk-abc
 
 ### Arguments
 
-| Argument         | Description                                                                                     | Required |
-|------------------|-------------------------------------------------------------------------------------------------|----------|
-| `--provider`     | The embedding provider to use (e.g., `openai`).                                                | Yes      |
-| `--model`        | The model name to use for the embedding provider.                                              | Yes      |
-| `--api-key`      | The API key for the embedding provider (required for OpenAI).                                  | Yes      |
-| `--input-path`   | Path to the folder containing markdown files.                                                  | Yes      |
-| `--output-path`  | Path to save the generated embeddings JSON file (default: `embeddings.json`).                  | No       |
-| `--verbose` or `-v` | Enable verbose logging for debugging purposes.                                              | No       |
+| Argument           | Description                                                                   | Required |
+|--------------------|-------------------------------------------------------------------------------|----------|
+| `--provider`       | The embedding provider to use (e.g., `openai`).                               | Yes      |
+| `--model`          | The model name to use for the embedding provider.                             | Yes      |
+| `--api-key`        | The API key for the embedding provider.                 | Yes      |
+| `--input-path`     | Path to the folder containing markdown files.                                 | Yes      |
+| `--output-path`    | Path to save the generated embeddings JSON file (default: `embeddings.json`). | No       |
+| `--backend-api-url`| The URL of the backend API to send the embeddings to.                         | No       |
+| `--backend-api-key`| The API key for the backend API.                                              | No       |
+| `--verbose` or `-v`| Enable verbose logging for debugging purposes.                                | No       |
 
 ### Supported providers
 
