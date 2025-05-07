@@ -1,12 +1,10 @@
 import warnings
-from urllib.parse import urljoin
 
 warnings.filterwarnings("ignore")
 
 import argparse
 import os
 import logging
-import requests
 
 from tqdm import tqdm
 
@@ -84,10 +82,7 @@ def main():
     # Upload or save embeddings
     if args.backend_api_url and args.backend_api_key:
         logging.info("Uploading embeddings to API.")
-        if upload_embeddings(args.backend_api_url, args.backend_api_key, embeddings):
-            logging.info("✅ Embeddings uploaded successfully.")
-        else:
-            logging.error("❌ Failed to upload embeddings.")
+        upload_embeddings(args.backend_api_url, args.backend_api_key, embeddings)
     else:
         logging.info("Saving embeddings to JSON.")
         save_to_json(embeddings, args.output_path)

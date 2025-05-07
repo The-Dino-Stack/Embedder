@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import List, Dict
 
+import numpy as np
+
 class EmbeddingProvider(ABC):
     @abstractmethod
     def validate(self) -> None:
@@ -29,3 +31,8 @@ class EmbeddingProvider(ABC):
                 - "embedding": list of float values representing the embedding vector
         """
         pass
+
+    @staticmethod
+    def is_valid_embedding(embedding):
+        emb = np.array(embedding, dtype=np.float32)
+        return np.all(np.isfinite(emb)) and np.linalg.norm(emb) > 0

@@ -1,3 +1,5 @@
+import logging
+
 import openai
 from openai import OpenAI
 from embed_providers import EmbeddingProvider
@@ -28,11 +30,16 @@ class OpenAIEmbedder(EmbeddingProvider):
                     input=doc["content"]
                 )
                 embedding = response.data[0].embedding
+
+                if not self.is_valid_embedding(embedding):
+                    logging.warning(f"⚠️ Skipping invalid embedding for {doc['filename']}")
+                    continue
+
                 results.append({
                     "filename": doc["filename"],
                     "content": doc["content"],
                     "embedding": embedding
                 })
             except Exception as e:
-                print(f"OpenAI error on {doc['filename']}: {e}")
+                logging.error(f"OpenAI error on {doc['filename']}: {e}")
         return results

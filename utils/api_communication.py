@@ -27,10 +27,7 @@ def upload_embeddings(api_url, api_key, embeddings):
         )
         if response.status_code == 200:
             logging.info("✅ Embeddings uploaded successfully.")
-            return True
         else:
             logging.error(f"❌ Failed to upload embeddings: {response.status_code} {response.text}")
-            return False
     except requests.RequestException as e:
         logging.error(f"❌ Failed to upload embeddings: {e}")
-        return False
