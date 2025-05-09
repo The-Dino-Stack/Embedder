@@ -1,2 +1,4 @@
 .idea/
 *.py[cod]
+chatosaurus_embedder.egg-info/
+dist/
